@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelplanning/Screens/navpages/mainPage.dart';
 
 class Payment extends StatefulWidget {
   const Payment({Key? key}) : super(key: key);
@@ -15,54 +16,56 @@ class _PaymentState extends State<Payment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        color: Colors.white,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              padding: const EdgeInsets.fromLTRB(14, 21, 14, 118),
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(left: 110, top: 50),
-                    margin: const EdgeInsets.only(bottom: 94),
-                    child: const Text(
-                      'Payment',
-                      textAlign: TextAlign.right,
-                      style:
-                          TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          color: Colors.white,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                padding: const EdgeInsets.fromLTRB(14, 21, 14, 118),
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.only(left: 110, top: 50),
+                      margin: const EdgeInsets.only(bottom: 94),
+                      child: const Text(
+                        'Payment',
+                        textAlign: TextAlign.right,
+                        style:
+                            TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ),
 
-                  const SizedBox(height: 10), // Add some vertical spacing
+                    const SizedBox(height: 10), // Add some vertical spacing
 
-                  const Text('Choose any payment option'),
+                    const Text('Choose any payment option'),
 
-                  const SizedBox(height: 10), // Add some vertical spacing
+                    const SizedBox(height: 10), // Add some vertical spacing
 
-                  buildPaymentOption('img/esewa.png', 0),
+                    buildPaymentOption('img/esewa.png', 0),
 
-                  const SizedBox(height: 10), // Add some vertical spacing
+                    const SizedBox(height: 10), // Add some vertical spacing
 
-                  buildPaymentOption('img/fonepay.png', 1),
+                    buildPaymentOption('img/fonepay.png', 1),
 
-                  buildTotal(),
+                    buildTotal(),
 
-                  buildConfirmPaymentButton(),
+                    buildConfirmPaymentButton(),
 
-                  const SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
-                  buildCancelPaymentButton(),
+                    buildCancelPaymentButton(),
 
-                  if (paymentSuccessful) const Text('Payment Successful'),
-                ],
+                    if (paymentSuccessful) const Text('Payment Successful'),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -117,6 +120,11 @@ class _PaymentState extends State<Payment> {
       onTap: () {
         setState(() {
           paymentSuccessful = true;
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                  const MainPage()));
         });
       },
       child: Container(
@@ -129,9 +137,11 @@ class _PaymentState extends State<Payment> {
         ),
         child: const Center(
           child: Text('Confirm Payment'),
+
         ),
       ),
     );
+
   }
 
   Widget buildCancelPaymentButton() {

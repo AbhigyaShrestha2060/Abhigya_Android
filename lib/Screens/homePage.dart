@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   padding: const EdgeInsets.only(top: 65, left: 20),
                   child: Row(
                     children: [
-                      Container(child: AppLargeText(text: "Greetings!!")),
+                      Container(child: AppLargeText(text: "Welcome!!")),
                       Expanded(child: Container()),
                       IconButton(
                           onPressed: () {
@@ -119,10 +119,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       indicator: CircleTabIndicator(
                           color: AppColors.mainColor, radius: 4),
                       tabs: const [
-                        Tab(text: "Heritage"),
-                        Tab(text: "Mountains"),
-                        Tab(text: "Lake"),
-                        Tab(text: "Waterfall"),
+                        Tab(text: "Culture"),
+                        Tab(text: "Himalayas"),
+                        Tab(text: "Lakes"),
+                        Tab(text: "Waterfalls"),
                       ],
                     ),
                   ),
@@ -484,10 +484,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       AppLargeText(
-                        text: "Top Destination",
+                        text: "Most Viewed Destination",
                         size: 22,
                       ),
-                      AppText(text: "See all", color: AppColors.texColor1)
+                      AppText(text: "View all", color: AppColors.texColor1)
                     ],
                   ),
                 ),
